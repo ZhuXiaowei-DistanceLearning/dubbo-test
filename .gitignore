@@ -2,5 +2,6 @@
 .idea/
 target/
 .git/
+*.imi
 
 

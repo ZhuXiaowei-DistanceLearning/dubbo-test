@@ -13,6 +13,9 @@
         <module>dubbo-comsumer</module>
         <module>dubbo-api</module>
         <module>dubbo-spi</module>
+        <module>tcc-server1</module>
+        <module>tcc-server2</module>
+        <module>tcc-server3</module>
     </modules>
     <properties>
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
@@ -57,10 +60,20 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson</artifactId>
+                <version>3.13.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+        </dependency>
         <!-- Dubbo Spring Boot Starter -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
