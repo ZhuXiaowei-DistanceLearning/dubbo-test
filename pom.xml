@@ -18,6 +18,7 @@
         <module>tcc-server3</module>
         <module>dubbo-mysql</module>
         <module>redis-lock</module>
+        <module>redis-unlock</module>
     </modules>
     <properties>
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
@@ -76,6 +77,12 @@
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.12</version>
         </dependency>
     </dependencies>
     <repositories>
