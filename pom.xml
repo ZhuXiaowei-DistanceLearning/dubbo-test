@@ -13,10 +13,14 @@
         <module>dubbo-comsumer</module>
         <module>dubbo-api</module>
         <module>dubbo-spi</module>
+        <module>dubbo-mysql</module>
+        <module>redis-lock</module>
     </modules>
     <properties>
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
         <dubbo.version>2.7.6</dubbo.version>
+        <mysql.version>5.1.24</mysql.version>
+        <mybatis.plus.vesion>3.3.1</mybatis.plus.vesion>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -27,6 +31,18 @@
                 <version>${spring-boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis.plus.vesion}</version>
             </dependency>
 
             <!-- Apache Dubbo  -->
@@ -67,10 +83,21 @@
             <artifactId>dubbo-spring-boot-starter</artifactId>
             <version>2.7.6</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
     </dependencies>
     <repositories>
