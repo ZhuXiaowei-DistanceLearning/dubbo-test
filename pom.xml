@@ -19,6 +19,7 @@
         <module>dubbo-mysql</module>
         <module>redis-lock</module>
         <module>redis-unlock</module>
+        <module>lock</module>
     </modules>
     <properties>
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
