@@ -21,6 +21,7 @@ public class ServiceRegistryImpl implements Watcher {
     private CountDownLatch connectedSignal = new CountDownLatch(1);
 
     public void process(WatchedEvent watchedEvent) {
+        // 客户端处于连接状态
         if (watchedEvent.getState() == Event.KeeperState.SyncConnected) {
             connectedSignal.countDown();
         }

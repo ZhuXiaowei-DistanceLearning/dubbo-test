@@ -1,6 +1,9 @@
 package zxw.web;
 
+import com.zxw.node.DistributedLock;
+import com.zxw.utils.ZookeeperUtils;
 import lombok.AllArgsConstructor;
+import org.apache.zookeeper.KeeperException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,6 +42,32 @@ public class RedissonController {
      * 模拟线程数
      */
     private static int threadNum = 10;
+
+    @GetMapping("/lock4")
+    public void lock4() throws KeeperException, InterruptedException {
+        System.out.println(redisTemplate.opsForValue().get("redis"));
+        DistributedLock distributedLock = new DistributedLock();
+        String path = distributedLock.getPath();
+        if (distributedLock.lockAcquired(path.split("/")[2])) {
+            redisTemplate.opsForValue().increment("redis");
+            distributedLock.delete(path);
+        }
+        System.out.println(redisTemplate.opsForValue().get("redis"));
+    }
+
+    @GetMapping("/lock3")
+    public void lock3() {
+        System.out.println(redisTemplate.opsForValue().get("redis"));
+        String uuid = UUID.randomUUID().toString();
+        for (; ; ) {
+            if (ZookeeperUtils.acquire(10000, TimeUnit.SECONDS)) {
+                redisTemplate.opsForValue().increment("redis");
+                ZookeeperUtils.release();
+                break;
+            }
+        }
+        System.out.println(redisTemplate.opsForValue().get("redis"));
+    }
 
     @GetMapping("/lock2")
     public void lock2() {

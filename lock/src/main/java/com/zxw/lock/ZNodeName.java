@@ -1,4 +1,4 @@
-package com.zxw.node;
+package com.zxw.lock;
 
 import lombok.*;
 
