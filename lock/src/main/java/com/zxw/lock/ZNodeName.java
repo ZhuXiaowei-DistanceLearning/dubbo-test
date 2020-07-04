@@ -1,6 +1,7 @@
 package com.zxw.lock;
 
 import lombok.*;
+import org.springframework.stereotype.Component;
 
 /**
  * @author zxw
