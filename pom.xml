@@ -20,10 +20,13 @@
         <module>redis-lock</module>
         <module>redis-unlock</module>
         <module>lock</module>
+        <module>lock-optimization</module>
     </modules>
     <properties>
         <spring-boot.version>2.2.6.RELEASE</spring-boot.version>
         <dubbo.version>2.7.6</dubbo.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -101,11 +104,16 @@
     </repositories>
     <profiles>
         <profile>
-            <id>jdk8</id>
+            <id>jdk1.8</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
                 <jdk>1.8</jdk>
             </activation>
+            <properties>
+                <maven.compiler.source>1.8</maven.compiler.source>
+                <maven.compiler.target>1.8</maven.compiler.target>
+                <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+            </properties>
         </profile>
     </profiles>
 </project>

@@ -5,3 +5,6 @@ target/
 *.imi
 
 
+/dubbo-spi/dubbo-spi.iml
+/dubbo-provider/dubbo-provider.iml
+/dubbo-comsumer/dubbo-comsumer.iml
