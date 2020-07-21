@@ -104,16 +104,16 @@ public class RedissonController {
      */
     @GetMapping("/lock")
     public void lock() {
-        System.out.println(redisTemplate.opsForValue().get("redis"));
+        System.out.println(redisTemplate.opsForValue().get("value"));
         lock.lock("redis-lock", TimeUnit.SECONDS, 30);
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        redisTemplate.opsForValue().increment("redis");
+        redisTemplate.opsForValue().increment("value");
         lock.unlock("redis-lock");
-        System.out.println(redisTemplate.opsForValue().get("redis"));
+        System.out.println(redisTemplate.opsForValue().get("value"));
 //        System.out.println("---结束---");
 //        System.out.println("开始执行");
 //        // 计数器
